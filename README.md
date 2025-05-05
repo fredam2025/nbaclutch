@@ -13,7 +13,7 @@ What makes a player "clutch" has long been debated by fans, analysts, and front 
 We explore several key questions: Which features are associated with changes in clutch scoring efficiency? Who are the top 15 most efficient clutch-time risers based on scoring efficiency gain? Which players quietly perform efficiently in clutch situations despite minimal increases in shot attempts? Who are the go-to scorers that shine with high usage in crunch time? And who are the volume shooters that increase their shot attempts but not their efficiency?
 
 ## 📭 Data Collection  
-The data for this project comes from NBA.com, retrieved using the [nba_api](https://github.com/swar/nba_api) package. We compiled regular and clutch-time player statistics for every regular season game between 2000 and 2023. After merging the datasets for each season, we filtered out players lacking both regular and clutch stats or those with fewer than 30 minutes and 20 field goal attempts in clutch-time.  
+The data for this project comes from NBA.com, retrieved using the [nba_api](https://github.com/swar/nba_api) package. We compiled regular and clutch-time player statistics for every regular season game between 2000 and 2024. After merging the datasets for each season, we filtered out players lacking both regular and clutch stats or those with fewer than 30 minutes and 20 field goal attempts in clutch-time.  
 
 We then normalized player stats to allow for fairer comparisons. Key derived variables included per-minute and per-FGA scoring rates for both regular and clutch time, along with their differences (PTS_delta and PTS_per_FGA_delta). We also calculated shot volume changes (FGA_per_min_delta), as well as changes in assists, turnovers, and field goal percentage.
 
@@ -23,7 +23,7 @@ To identify the most important predictors of clutch scoring efficiency gain (PTS
 To explain the model’s predictions, we used SHAP values to understand each feature’s contribution to the output. We also created an actual vs. predicted values graph to visually inspect how well the model performed. These tools allowed us to interpret both the effectiveness of our predictive model and the relative importance of each feature.
 
 ## 💎 Key Insights  
-Our model highlighted FG_PCT_clutch (field goal percentage during clutch time) as the most impactful predictor of scoring efficiency gain, which reinforces the importance of shooting accuracy when it matters most. FG_PCT_overall and PLUS_MINUS_clutch followed closely as influential indicators. The Random Forest Model explained over 53% of the variation in PTS_per_FGA_delta, suggesting that while clutch performance has intangible elements, regular season stats can provide meaningful insight.
+Our model highlighted FG_PCT_delta (field goal percentage change between regular and clutch play) as the most impactful predictor of scoring efficiency gain, which reinforces the importance of shooting accuracy when it matters most. FG_PCT_clutch followed closely as another influential indicator. The Random Forest Model explained over 57% of the variation in PTS_per_FGA_delta, suggesting that while clutch performance has intangible elements, regular season stats can provide meaningful insight.
 
 ## 💡 Implications  
 Using predictive models to evaluate clutch performance introduces limitations, such as ignoring psychological factors like confidence or pressure. There is also the risk of misjudging a player by numbers alone, without considering context, role, or sample size.  
